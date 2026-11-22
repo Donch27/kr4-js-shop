@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Информация о доставке, оплате и оформлении заказов в IceForce.">
+  <meta name="theme-color" content="#193d35">
+  <title>Доставка и оплата — IceForce</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <script>document.documentElement.classList.add('js');</script>
+  <script src="js/data.js" defer></script>
+  <script src="js/validation.js" defer></script>
+  <script src="js/cart.js" defer></script>
+  <script src="js/catalog.js" defer></script>
+  <script src="js/product.js" defer></script>
+  <script src="js/modal.js" defer></script>
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Перейти к основному содержимому</a>
+
+<header class="site-header">
+  <div class="site-header__inner container">
+    <a class="site-header__logo" href="index.html">IceForce</a>
+
+    <button class="site-header__menu-button" type="button" aria-expanded="false" aria-controls="site-nav">
+      <span class="site-header__menu-icon" aria-hidden="true"></span>
+      Меню
+    </button>
+
+    <nav class="site-nav" id="site-nav" aria-label="Основная навигация">
+      <ul class="site-nav__list">
+        <li><a class="site-nav__link" href="index.html">Главная</a></li>
+        <li><a class="site-nav__link" href="catalog.html">Каталог</a></li>
+        <li><a class="site-nav__link" href="order.html">Оформить заявку</a></li>
+        <li><a class="site-nav__link" href="cart.html">Корзина <span class="cart-counter" aria-label="Товаров в корзине">0</span></a></li>
+        <li><a class="site-nav__link" href="size-guide.html">Подбор экипировки</a></li>
+        <li><a class="site-nav__link site-nav__link--active" href="delivery.html" aria-current="page">Доставка и оплата</a></li>
+        <li><a class="site-nav__link" href="contacts.html">Контакты</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main" tabindex="-1">
+  <div class="container">
+  <nav class="breadcrumbs" aria-label="Хлебные крошки">
+    <ol class="breadcrumbs__list">
+      <li class="breadcrumbs__item"><a class="breadcrumbs__link" href="index.html">Главная</a></li>
+      <li class="breadcrumbs__item" aria-current="page">Доставка и оплата</li>
+    </ol>
+  </nav>
+
+    <section class="page-banner" aria-labelledby="delivery-title">
+      <h1 id="delivery-title">Доставка и оплата</h1>
+      <p>
+        Подготовься к следующей игре вместе с IceForce.
+        Здесь ты найдёшь информацию о том, как оформить заказ,
+        уточнить наличие экипировки и согласовать способ получения.
+      </p>
+      <a class="button button--primary" href="catalog.html">Перейти в каталог</a>
+    </section>
+
+    <section aria-labelledby="steps-title">
+      <h2 class="section-title" id="steps-title">Как оформить заказ</h2>
+      <ol class="info-grid info-grid--steps">
+        <li class="info-card">
+          <h3>01. Выбери экипировку</h3>
+          <p>Открой каталог, ознакомься с товарами и выбери подходящую экипировку для тренировок или матчей.</p>
+        </li>
+        <li class="info-card">
+          <h3>02. Укажи размер</h3>
+          <p>При оформлении демонстрационной заявки выбери размерную категорию и заполни необходимые поля.</p>
+        </li>
+        <li class="info-card">
+          <h3>03. Уточни детали</h3>
+          <p>Перед покупкой необходимо подтвердить наличие товара, итоговую стоимость, способ получения и условия доставки.</p>
+        </li>
+        <li class="info-card">
+          <h3>04. Согласуй получение</h3>
+          <p>Способ и сроки получения заказа согласовываются с продавцом после подтверждения заявки.</p>
+        </li>
+      </ol>
+    </section>
+
+    <section aria-labelledby="ways-title">
+      <h2 class="section-title" id="ways-title">Способы доставки</h2>
+      <div class="info-grid">
+        <article class="info-card">
+          <h3>Курьерская доставка</h3>
+          <p>Возможный вариант получения заказа по согласованному адресу. Доступность услуги, стоимость и сроки нужно уточнить перед оформлением покупки.</p>
+        </article>
+        <article class="info-card">
+          <h3>Самовывоз</h3>
+          <p>Если предусмотрена выдача заказов, место и время получения согласовываются заранее.</p>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="payment-title">
+      <h2 class="section-title" id="payment-title">Оплата</h2>
+      <div class="info-card">
+        <p>Доступные способы оплаты, окончательная сумма и порядок расчёта должны быть подтверждены до покупки.</p>
+        <ul>
+          <li>Уточни стоимость выбранных товаров.</li>
+          <li>Узнай, какие способы оплаты доступны.</li>
+          <li>Проверь согласованные условия перед оплатой.</li>
+        </ul>
+      </div>
+
+      <p class="note">
+        <strong>Обрати внимание:</strong> IceForce в рамках учебного проекта демонстрирует интерфейс
+        интернет-магазина. Реальные доставка, оплата и обработка заказов на сайте не подключены.
+      </p>
+    </section>
+
+    <section class="cta" aria-labelledby="delivery-cta-title">
+      <h2 id="delivery-cta-title">Остались вопросы?</h2>
+      <p>Перейди на страницу контактов, чтобы задать вопрос через форму обратной связи.</p>
+      <a class="button button--primary" href="contacts.html">Связаться с нами</a>
+    </section>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="site-footer__inner container">
+    <div>
+      <p class="site-footer__title">IceForce</p>
+      <p>Хоккейная экипировка для тренировок и матчей.</p>
+    </div>
+
+    <nav aria-label="Дополнительная навигация">
+      <ul class="site-footer__links">
+        <li><a href="catalog.html">Каталог</a></li>
+        <li><a href="order.html">Оформить заявку</a></li>
+        <li><a href="cart.html">Корзина</a></li>
+        <li><a href="delivery.html">Доставка и оплата</a></li>
+        <li><a href="size-guide.html">Подбор экипировки</a></li>
+      </ul>
+    </nav>
+
+    <div>
+      <p>Email: <a href="mailto:info@iceforce.ru">info@iceforce.ru</a></p>
+      <p>Телефон: <a href="tel:+79990000000">+7 (999) 000-00-00</a></p>
+      <p><a href="contacts.html">Все контакты</a></p>
+    </div>
+
+    <p><button class="theme-toggle" type="button" aria-pressed="false">Тёмная тема</button></p>
+
+    <p class="site-footer__copyright">© 2026 IceForce. Учебный проект — Дончу Артём, ЭФБО-03-25.</p>
+  </div>
+</footer>
+
+<button class="scroll-top" id="scroll-top" type="button">
+  <span aria-hidden="true">↑</span> Наверх
+</button>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+</body>
+</html>

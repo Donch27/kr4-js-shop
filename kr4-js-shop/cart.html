@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ru"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Корзина хоккейного магазина IceForce — учебный JavaScript-проект."><title>Корзина — IceForce</title><link rel="stylesheet" href="css/style.css"><link rel="stylesheet" href="css/responsive.css"><script>document.documentElement.classList.add('js');</script>
+<script src="js/data.js" defer></script>
+<script src="js/validation.js" defer></script>
+<script src="js/cart.js" defer></script>
+<script src="js/catalog.js" defer></script>
+<script src="js/product.js" defer></script>
+<script src="js/modal.js" defer></script>
+<script src="js/main.js" defer></script></head><body>
+<a class="skip-link" href="#main">Перейти к основному содержимому</a>
+<header class="site-header">
+<div class="site-header__inner container">
+<a class="site-header__logo" href="index.html">IceForce</a>
+<button aria-controls="site-nav" aria-expanded="false" class="site-header__menu-button" type="button">
+<span aria-hidden="true" class="site-header__menu-icon"></span>
+      Меню
+    </button>
+<nav aria-label="Основная навигация" class="site-nav" id="site-nav">
+<ul class="site-nav__list">
+<li><a class="site-nav__link" href="index.html">Главная</a></li>
+<li><a  class="site-nav__link " href="catalog.html">Каталог</a></li>
+<li><a class="site-nav__link" href="order.html">Оформить заявку</a></li>
+<li><a class="site-nav__link site-nav__link--active" href="cart.html" aria-current="page">Корзина <span aria-label="Товаров в корзине" class="cart-counter">0</span></a></li>
+<li><a class="site-nav__link" href="size-guide.html">Подбор экипировки</a></li>
+<li><a class="site-nav__link" href="delivery.html">Доставка и оплата</a></li>
+<li><a class="site-nav__link" href="contacts.html">Контакты</a></li>
+</ul>
+</nav>
+</div>
+</header>
+<main id="main" tabindex="-1"><div class="container">
+<nav class="breadcrumbs" aria-label="Хлебные крошки"><ol class="breadcrumbs__list"><li><a href="index.html">Главная</a></li><li aria-current="page">Корзина</li></ol></nav>
+<header class="page-intro"><h1>Корзина</h1><p>Добавляйте экипировку и меняйте количество. Корзина сохранится после обновления страницы.</p></header>
+<section id="cart-empty" class="catalog-empty" aria-live="polite"><h2>Корзина пока пуста</h2><p>Выберите товары в каталоге — они появятся здесь.</p><a class="button button--primary" href="catalog.html">Перейти в каталог</a></section>
+<div id="cart-content" class="cart-layout" hidden>
+<section aria-labelledby="cart-items-title"><h2 class="section-title" id="cart-items-title">Ваши товары</h2><ul id="cart-items" class="cart-list"></ul></section>
+<aside class="order-summary" aria-label="Сумма корзины"><h2 class="order-summary__title">Итого</h2><dl class="order-summary__list"><dt>Количество</dt><dd id="cart-quantity">0</dd><dt>Товары</dt><dd id="cart-subtotal">0 ₽</dd><dt>Скидка</dt><dd id="cart-discount">0 ₽</dd></dl><p class="order-summary__total">Итого: <span id="cart-total">0 ₽</span></p>
+<form id="promo-form" class="promo-form"><label class="order-form__label" for="promo-code">Промокод</label><div class="promo-form__row"><input class="order-form__input" id="promo-code" placeholder="ICE10" autocomplete="off"><button class="button button--secondary" type="submit">Применить</button></div><p id="promo-message" role="status" aria-live="polite">Для примера используйте ICE10 (скидка 10 %).</p></form>
+<p class="order-form__note">Учебный магазин: онлайн-оплата отсутствует.</p></aside></div>
+<section id="cart-checkout" class="cart-checkout" aria-labelledby="cart-checkout-title" hidden><h2 class="section-title" id="cart-checkout-title">Подготовить заявку на товары</h2><p>Заполните данные для демонстрационной заявки. Никакие сведения не отправляются на сервер.</p>
+<form id="cart-checkout-form" class="order-form" action="cart.html" method="get"><div class="order-form__grid">
+<div class="order-form__field"><label class="order-form__label" for="checkout-name">Имя *</label><input class="order-form__input" id="checkout-name" name="name" type="text" autocomplete="name" required aria-describedby="checkout-name-error"><p id="checkout-name-error" class="order-form__error"></p></div>
+<div class="order-form__field"><label class="order-form__label" for="checkout-phone">Телефон *</label><input class="order-form__input" id="checkout-phone" name="phone" type="tel" autocomplete="tel" required pattern="[0-9+()\-\s]{10,20}" aria-describedby="checkout-phone-error"><p id="checkout-phone-error" class="order-form__error"></p></div>
+<div class="order-form__field order-form__field--wide"><label class="order-form__label" for="checkout-email">Email *</label><input class="order-form__input" id="checkout-email" name="email" type="email" autocomplete="email" required aria-describedby="checkout-email-error"><p id="checkout-email-error" class="order-form__error"></p></div>
+</div><div class="order-form__field"><label class="order-form__checkbox"><input type="checkbox" name="agreement" required aria-describedby="checkout-agreement-error"><span>Согласен на обработку данных *</span></label><p id="checkout-agreement-error" class="order-form__error"></p></div>
+<div class="order-form__actions"><button class="button button--primary" type="submit">Подготовить заявку</button></div></form></section>
+<p id="cart-message" class="form-status" role="status" tabindex="-1" aria-live="polite"></p>
+</div></main><footer class="site-footer">
+<div class="site-footer__inner container">
+<div>
+<p class="site-footer__title">IceForce</p>
+<p>Хоккейная экипировка для тренировок и матчей.</p>
+</div>
+<nav aria-label="Дополнительная навигация">
+<ul class="site-footer__links">
+<li><a href="catalog.html">Каталог</a></li>
+<li><a href="order.html">Оформить заявку</a></li>
+<li><a href="cart.html">Корзина</a></li>
+<li><a href="delivery.html">Доставка и оплата</a></li>
+<li><a href="size-guide.html">Подбор экипировки</a></li>
+</ul>
+</nav>
+<div>
+<p>Email: <a href="mailto:info@iceforce.ru">info@iceforce.ru</a></p>
+<p>Телефон: <a href="tel:+79990000000">+7 (999) 000-00-00</a></p>
+<p><a href="contacts.html">Все контакты</a></p>
+</div>
+<p><button aria-pressed="false" class="theme-toggle" type="button">Тёмная тема</button></p>
+<p class="site-footer__copyright">© 2026 IceForce. Учебный проект — Дончу Артём, ЭФБО-03-25.</p>
+</div>
+</footer><button class="scroll-top" id="scroll-top" type="button">
+<span aria-hidden="true">↑</span> Наверх
+</button><div aria-live="polite" class="toast" id="toast" role="status"></div>
+</body></html>

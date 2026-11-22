@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Каталог хоккейной экипировки IceForce: защита, инвентарь и одежда с фильтрами по категориям и цене.">
+  <meta name="theme-color" content="#193d35">
+  <title>Каталог — IceForce</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <script>document.documentElement.classList.add('js');</script>
+  <script src="js/data.js" defer></script>
+  <script src="js/validation.js" defer></script>
+  <script src="js/cart.js" defer></script>
+  <script src="js/catalog.js" defer></script>
+  <script src="js/product.js" defer></script>
+  <script src="js/modal.js" defer></script>
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Перейти к основному содержимому</a>
+
+<header class="site-header">
+  <div class="site-header__inner container">
+    <a class="site-header__logo" href="index.html">IceForce</a>
+
+    <button class="site-header__menu-button" type="button" aria-expanded="false" aria-controls="site-nav">
+      <span class="site-header__menu-icon" aria-hidden="true"></span>
+      Меню
+    </button>
+
+    <nav class="site-nav" id="site-nav" aria-label="Основная навигация">
+      <ul class="site-nav__list">
+        <li><a class="site-nav__link" href="index.html">Главная</a></li>
+        <li><a class="site-nav__link site-nav__link--active" href="catalog.html" aria-current="page">Каталог</a></li>
+        <li><a class="site-nav__link" href="order.html">Оформить заявку</a></li>
+        <li><a class="site-nav__link" href="cart.html">Корзина <span class="cart-counter" aria-label="Товаров в корзине">0</span></a></li>
+        <li><a class="site-nav__link" href="size-guide.html">Подбор экипировки</a></li>
+        <li><a class="site-nav__link" href="delivery.html">Доставка и оплата</a></li>
+        <li><a class="site-nav__link" href="contacts.html">Контакты</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main" tabindex="-1">
+  <div class="container">
+  <nav class="breadcrumbs" aria-label="Хлебные крошки">
+    <ol class="breadcrumbs__list">
+      <li class="breadcrumbs__item"><a class="breadcrumbs__link" href="index.html">Главная</a></li>
+      <li class="breadcrumbs__item" aria-current="page">Каталог</li>
+    </ol>
+  </nav>
+
+    <header class="page-intro">
+      <h1>Каталог хоккейной экипировки</h1>
+      <p>Экипировка, защита и инвентарь для тренировок и матчей.</p>
+    </header>
+
+    <div class="catalog-layout">
+      <aside class="catalog-filters" aria-labelledby="filters-title">
+        <div class="catalog-filters__header">
+          <h2 class="catalog-filters__title" id="filters-title">Фильтры</h2>
+          <button class="button button--secondary catalog-filters__toggle" type="button" aria-expanded="false" aria-controls="filters-form">Показать фильтры</button>
+        </div>
+
+        <form class="filters-form" id="filters-form" action="catalog.html" method="get">
+          <fieldset class="filters-form__group">
+            <legend class="filters-form__legend">Категория</legend>
+            <label class="filters-form__option">
+              <input type="checkbox" name="category" value="clothing">
+              Одежда
+              <span class="filters-form__count">(3)</span>
+            </label>
+            <label class="filters-form__option">
+              <input type="checkbox" name="category" value="protection">
+              Защита
+              <span class="filters-form__count">(7)</span>
+            </label>
+            <label class="filters-form__option">
+              <input type="checkbox" name="category" value="equipment">
+              Инвентарь
+              <span class="filters-form__count">(2)</span>
+            </label>
+          </fieldset>
+
+          <fieldset class="filters-form__group">
+            <legend class="filters-form__legend">Цена, ₽</legend>
+            <div class="filters-form__range">
+              <div class="order-form__field">
+                <label class="order-form__label" for="price-from">От</label>
+                <input class="order-form__input" id="price-from" name="price-from" type="number" inputmode="numeric" min="0" step="100" placeholder="0">
+              </div>
+              <div class="order-form__field">
+                <label class="order-form__label" for="price-to">До</label>
+                <input class="order-form__input" id="price-to" name="price-to" type="number" inputmode="numeric" min="0" step="100" placeholder="30000">
+              </div>
+            </div>
+          </fieldset>
+
+          <div class="order-form__field">
+            <label class="order-form__label" for="catalog-search">Поиск по названию</label>
+            <input class="order-form__input" type="search" id="catalog-search" name="search" placeholder="Например, шлем" autocomplete="off">
+          </div>
+
+          <div class="order-form__field">
+            <label class="order-form__label" for="sort">Сортировка</label>
+            <select class="order-form__select" id="sort" name="sort">
+              <option value="default">По умолчанию</option>
+              <option value="price-asc">Сначала дешевле</option>
+              <option value="price-desc">Сначала дороже</option>
+              <option value="name">По названию</option>
+            </select>
+          </div>
+
+          <div class="filters-form__actions">
+            <button class="button button--primary" type="submit">Применить</button>
+            <button class="button button--secondary" type="reset">Сбросить</button>
+          </div>
+        </form>
+      </aside>
+
+      <section class="catalog-products" aria-labelledby="products-title">
+        <div class="catalog-products__header">
+          <h2 class="catalog-products__title" id="products-title">Товары</h2>
+          <p class="catalog-products__count" id="products-count" aria-live="polite">Найдено товаров: 0</p>
+        </div>
+
+        <ul class="products-grid" id="products-grid">
+          <!-- Карточки создаются через JavaScript в js/catalog.js -->
+        </ul>
+
+        <div class="catalog-empty" id="catalog-empty" hidden>
+          <h3>Ничего не найдено</h3>
+          <p>Попробуйте изменить запрос, категорию или диапазон цен.</p>
+          <button class="button button--secondary" type="button" data-filters-reset>Сбросить фильтры</button>
+        </div>
+      </section>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="site-footer__inner container">
+    <div>
+      <p class="site-footer__title">IceForce</p>
+      <p>Хоккейная экипировка для тренировок и матчей.</p>
+    </div>
+
+    <nav aria-label="Дополнительная навигация">
+      <ul class="site-footer__links">
+        <li><a href="catalog.html">Каталог</a></li>
+        <li><a href="order.html">Оформить заявку</a></li>
+        <li><a href="cart.html">Корзина</a></li>
+        <li><a href="delivery.html">Доставка и оплата</a></li>
+        <li><a href="size-guide.html">Подбор экипировки</a></li>
+      </ul>
+    </nav>
+
+    <div>
+      <p>Email: <a href="mailto:info@iceforce.ru">info@iceforce.ru</a></p>
+      <p>Телефон: <a href="tel:+79990000000">+7 (999) 000-00-00</a></p>
+      <p><a href="contacts.html">Все контакты</a></p>
+    </div>
+
+    <p><button class="theme-toggle" type="button" aria-pressed="false">Тёмная тема</button></p>
+
+    <p class="site-footer__copyright">© 2026 IceForce. Учебный проект — Дончу Артём, ЭФБО-03-25.</p>
+  </div>
+</footer>
+
+<button class="scroll-top" id="scroll-top" type="button">
+  <span aria-hidden="true">↑</span> Наверх
+</button>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+</body>
+</html>
