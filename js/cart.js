@@ -61,15 +61,33 @@ function toggleFavorite(id) {
     : [...currentFavorites, id];
   setStored(FAVORITES_KEY, currentFavorites);
   refreshFavoriteButtons();
+  renderFavorites();
   showToast(currentFavorites.includes(id) ? 'Товар добавлен в избранное.' : 'Товар удалён из избранного.');
 }
 function refreshFavoriteButtons() {
+  document.querySelectorAll('.favorites-counter').forEach((node) => {
+    node.textContent = String(currentFavorites.length);
+  });
   document.querySelectorAll('[data-toggle-favorite]').forEach((button) => {
     const isFavorite = currentFavorites.includes(button.dataset.toggleFavorite);
     button.setAttribute('aria-pressed', String(isFavorite));
     button.classList.toggle('favorite-button--active', isFavorite);
     button.textContent = isFavorite ? '♥ В избранном' : '♡ В избранное';
   });
+}
+
+
+function renderFavorites() {
+  const grid = document.querySelector('#favorites-grid');
+  if (!grid) return;
+  const empty = document.querySelector('#favorites-empty');
+  const count = document.querySelector('#favorites-count');
+  const favorites = currentFavorites.map((id) => PRODUCTS[id]).filter(Boolean);
+  count.textContent = `Избранных товаров: ${favorites.length}`;
+  empty.hidden = favorites.length > 0;
+  grid.hidden = favorites.length === 0;
+  grid.replaceChildren(...favorites.map((product) => createProductCard(product)));
+  refreshFavoriteButtons();
 }
 
 function initTheme() {
@@ -175,4 +193,5 @@ function initCart() {
   });
   saveCart();
   refreshFavoriteButtons();
+  renderFavorites();
 }
